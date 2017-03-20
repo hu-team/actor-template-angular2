@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
+import { ActorbaseModule } from './actorbase/actorbase.module';
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -14,7 +14,8 @@ import { AppComponent } from './app.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    MaterialModule
+    MaterialModule,
+    ActorbaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]
