@@ -1,3 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 @import '~@angular/material/core/theming/prebuilt/indigo-pink.scss';
+@import "mixin/_breakpoint.scss";
+
+// =============================================
+// Primary Break Points
+// =============================================
+$bp-xsmall: 479px; 
+$bp-small: 569px; 
+$bp-medium: 770px; 
+$bp-large: 1023px; 
+$bp-xlarge: 1199px; 
