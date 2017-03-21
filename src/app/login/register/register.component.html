@@ -1,0 +1,43 @@
+<div>
+  <div class="login-wrapper">
+    <md-card>
+      <md-card-title>
+        Register
+      </md-card-title>
+      <md-card-content>
+        <div class="social facebook">
+          Sign up with facebook
+        </div>
+        <div class="social google">
+          Sign un with Google+
+        </div>
+        <div class="form">
+          <div class="form-group">
+            <label>Firstname</label>
+            <input type="text" [(ngModel)]="firstName" placeholder="Firstname"/>
+          </div>
+          <div class="form-group">
+            <label>Lastname</label>
+            <input type="text" [(ngModel)]="lastName" placeholder="LastName" />
+          </div>                    
+          <div class="form-group">
+            <label>E-mail</label>
+            <input type="text" [(ngModel)]="email" placeholder="E-mail"/>
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" [(ngModel)]="password" placeholder="Password"/>
+          </div>          
+        </div>
+        <div class="action">
+          <button md-button (click)="register()">
+            Register
+          </button>
+        </div>
+        <div class="dont-have">
+          <a routerLink="/login">Back to Login page</a>
+        </div>
+      </md-card-content>
+    </md-card>
+  </div>
+</div>
