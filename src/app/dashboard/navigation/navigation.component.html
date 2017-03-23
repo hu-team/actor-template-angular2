@@ -1,0 +1,11 @@
+<nav id="navigation">
+  <div class="brandName">
+    <h1>Actor Template</h1>
+  </div>
+  <div class="links">
+    <md-menu #appMenu="mdMenu">
+      <button md-menu-item (click)="logout()">Logout</button>
+    </md-menu>
+    <md-icon [mdMenuTriggerFor]="appMenu" >menu</md-icon>
+  </div>
+</nav>

@@ -7,9 +7,12 @@ import { ActorbaseModule } from './actorbase/actorbase.module';
 import { LoginModule } from './login/login.module';
 import { LoginComponent } from './login/login/login.component';
 import { RegisterComponent } from './login/register/register.component';
+import { DashboardModule } from './dashboard/dashboard.module';
+import { BoardComponent } from './dashboard/board/board.component';
 
 import { AppComponent } from './app.component';
 import { Routes, RouterModule } from '@angular/router';
+import { NavigationComponent } from './navigation/navigation.component';
 
 const appRoutes: Routes = [
   {
@@ -21,6 +24,10 @@ const appRoutes: Routes = [
     component: RegisterComponent
   },
   {
+    path: 'dashboard',
+    component: BoardComponent
+  },
+  {
     path: '',
     redirectTo: '/login',
     pathMatch: 'full'
@@ -29,7 +36,8 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +45,7 @@ const appRoutes: Routes = [
     HttpModule,
     MaterialModule,
     ActorbaseModule,
+    DashboardModule,
     LoginModule,
     RouterModule.forRoot(appRoutes)
   ],

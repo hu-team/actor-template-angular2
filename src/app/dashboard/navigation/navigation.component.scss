@@ -1,0 +1,41 @@
+@import "../../../styles.scss";
+
+#navigation {
+  background-color: #2196F3;
+  color: #fff;
+  height: 70px;
+
+  .brandName {
+    float: left;
+
+    @include bp(min-width, $bp-small+1) {
+      width: 35%;
+    }
+
+    h1 {
+      margin: 0;
+      padding: 20px 15px;
+
+      @include bp(min-width, $bp-small+1) {
+
+      }
+    }
+  }
+
+  .links {
+    float: right;
+    height: 40px;
+    margin-top: 15px;
+    padding-right: 40px;
+    text-align: right;
+
+    md-icon {
+      font-size: 40px;
+    }
+
+    @include bp(min-width, $bp-small+1) {
+      width: 25%;
+    }
+
+  }
+}

@@ -1,17 +1,21 @@
 import { Injectable } from '@angular/core';
-import { Fireuser } from './fireuser';
+import { User } from './user';
 import { Subject, BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class UserAuthService {
   private isLoggedIn: Boolean = false;
-  private userAuth: Subject<Fireuser> = new BehaviorSubject<Fireuser>(null);
+  private userAuth: Subject<User> = new BehaviorSubject<User>(null);
 
   constructor() {
 
   }
 
-  public setUser(user: Fireuser): void {
+  public getUser() {
+    return this.userAuth;
+  }
+  
+  public setUser(user: User): void {
     this.userAuth.next(user);
   }
 

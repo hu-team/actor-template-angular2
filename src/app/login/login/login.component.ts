@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginController } from '../../actorbase/login-controller';
 import { EmailPasswordCredentials } from 'angularfire2/auth'
+import { UserAuthService } from '../../actorbase/user-auth.service';
+import { User } from '../../actorbase/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +16,7 @@ export class LoginComponent implements OnInit {
   private error: Boolean = false;
   private errorM: string = "";
 
-  constructor(public lc: LoginController) { }
+  constructor(public lc: LoginController, public userAuth: UserAuthService, public router: Router) { }
 
   ngOnInit() {
   }
@@ -23,7 +26,10 @@ export class LoginComponent implements OnInit {
       case 'facebook':
         this.lc.login('facebook')
           .then(data => {
-            //this.router.navigateByUrl('login');
+            let user  = new User(data.uid, data.auth.displayName, data.auth.photoURL);
+
+            this.userAuth.setUser(user);
+            this.router.navigateByUrl('dashboard');
           })
           .catch(err => {
             this.error = true;
@@ -33,7 +39,10 @@ export class LoginComponent implements OnInit {
       case 'google':
         this.lc.login('google')
           .then(data => {
-            //this.router.navigateByUrl('login');
+            let user = new User(data.uid, data.auth.displayName, data.auth.photoURL);
+
+            this.userAuth.setUser(user);
+            this.router.navigateByUrl('dashboard');
           })
           .catch(err => {
             this.error = true;
@@ -48,7 +57,10 @@ export class LoginComponent implements OnInit {
           }
           this.lc.login('email', obj)
             .then(data => {
-              //this.router.navigateByUrl('login');
+              let user = new User(data.uid, data.auth.email);
+
+              this.userAuth.setUser(user);
+              this.router.navigateByUrl('dashboard');
             })
             .catch(err => {
               this.error = true;
