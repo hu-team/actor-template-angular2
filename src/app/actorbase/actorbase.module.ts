@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AngularFireModule } from 'angularfire2';
-import { ActorConfig } from './actor-config';
+import { UserAuthService } from './user-auth.service';
 
 const config = {
     apiKey: "AIzaSyAKFgtLOkl1OmrSeIwLWCnpZTNZ1t-EaX4",
@@ -16,6 +16,7 @@ const config = {
     CommonModule,
     AngularFireModule.initializeApp(config)
   ],
-  declarations: []
+  declarations: [],
+  providers: [ UserAuthService ]
 })
 export class ActorbaseModule { }

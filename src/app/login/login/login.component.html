@@ -5,24 +5,29 @@
         Login
       </md-card-title>
       <md-card-content>
-        <div class="social facebook">
+        <div class="social facebook" (click)="login('facebook')">
           Sign in with facebook
         </div>
-        <div class="social google">
+        <div class="social google" (click)="login('google')">
           Sign in with Google+
         </div>
         <div class="form">
+          <div class="error" *ngIf="error">
+            <div class="message">
+              {{errorM}}
+            </div>
+          </div>
           <div class="form-group">
             <label>E-mail</label>
-            <input type="text" placeholder="E-mail"/>
+            <input type="text" [(ngModel)]="email" placeholder="E-mail"/>
           </div>
           <div class="form-group">
             <label>Password</label>
-            <input type="password" placeholder="Password"/>
+            <input type="password" [(ngModel)]="password" placeholder="Password"/>
           </div>          
         </div>
         <div class="action">
-          <button md-button>
+          <button md-button (click)="login('email')">
             Login
           </button>
         </div>

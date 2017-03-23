@@ -5,13 +5,18 @@
         Register
       </md-card-title>
       <md-card-content>
-        <div class="social facebook">
+        <div class="social facebook" (click)="register('facebook')">
           Sign up with facebook
         </div>
-        <div class="social google">
+        <div class="social google" (click)="register('google')">
           Sign un with Google+
         </div>
         <div class="form">
+          <div class="error" *ngIf="error">
+            <div class="message">
+              {{errorM}}
+            </div>
+          </div>
           <div class="form-group">
             <label>Firstname</label>
             <input type="text" [(ngModel)]="firstName" placeholder="Firstname"/>
@@ -30,7 +35,7 @@
           </div>          
         </div>
         <div class="action">
-          <button md-button (click)="register()">
+          <button md-button (click)="register('email')">
             Register
           </button>
         </div>
