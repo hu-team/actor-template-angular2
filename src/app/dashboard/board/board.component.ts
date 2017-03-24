@@ -10,11 +10,13 @@ import { User } from '../../actorbase/user';
 })
 export class BoardComponent implements OnInit {
   private user: User;
+  private create: Boolean = false;
+  private view: Boolean = false;
 
   constructor(public userAuth: UserAuthService, public router: Router) { 
     this.userAuth.getUser().subscribe(user => {
       if(!user) {
-        this.router.navigateByUrl("login");
+        //this.router.navigateByUrl("login");
       } else {
         this.user = user;
       }
@@ -22,7 +24,19 @@ export class BoardComponent implements OnInit {
   }
 
   ngOnInit() {
+    const url = this.router.url;
 
+    switch(url) {
+      case '/dasboard':
+        this.view = true;
+      break;
+      case '/project/create':
+        this.create = true;
+      break;
+      default:
+        this.view = true;
+      break;
+    }
   }
 
 }

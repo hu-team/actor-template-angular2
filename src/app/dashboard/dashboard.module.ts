@@ -4,13 +4,15 @@ import { BoardComponent } from './board/board.component';
 import { RouterModule } from '@angular/router';
 import { NavigationComponent } from './navigation/navigation.component';
 import { MdMenuModule, MdIconModule } from '@angular/material';
+import { ProjectModule } from '../project/project.module';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
     MdMenuModule,
-    MdIconModule
+    MdIconModule,
+    ProjectModule
   ],
   declarations: [BoardComponent, NavigationComponent]
 })
