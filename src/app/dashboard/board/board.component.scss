@@ -1,0 +1,15 @@
+@import "../../../styles.scss";
+
+.container {
+
+  @include bp(min-width, $bp-xsmall+1) {
+    padding: 40px 25px;
+    width: 100%;
+  }
+
+  @include bp(min-width, $bp-medium+1) {
+    background: green;
+    margin: 0 auto;
+    width: 65%;
+  }
+}
