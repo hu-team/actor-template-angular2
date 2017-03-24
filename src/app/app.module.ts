@@ -12,7 +12,6 @@ import { BoardComponent } from './dashboard/board/board.component';
 
 import { AppComponent } from './app.component';
 import { Routes, RouterModule } from '@angular/router';
-import { NavigationComponent } from './navigation/navigation.component';
 
 const appRoutes: Routes = [
   {
@@ -28,6 +27,10 @@ const appRoutes: Routes = [
     component: BoardComponent
   },
   {
+    path: 'project/create',
+    component: BoardComponent
+  },
+  {
     path: '',
     redirectTo: '/login',
     pathMatch: 'full'
@@ -36,8 +39,7 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent,
-    NavigationComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
