@@ -4,6 +4,7 @@ import { Subject, BehaviorSubject } from 'rxjs';
 import { UserAuthService } from './user-auth.service';
 import { EmailPasswordCredentials } from 'angularfire2/auth'
 import { Fireuser } from './fireuser';
+import { User } from './user';
 
 @Injectable()
 export class LoginController {
@@ -75,7 +76,11 @@ export class LoginController {
       }
   }
 
-  createUser(user: Fireuser): firebase.Promise<FirebaseAuthState> {
+  createFireUser(user: Fireuser): firebase.Promise<FirebaseAuthState> {
     return this.af.auth.createUser(user)
+  }
+
+  createUser(user: User, uid: string) {
+    return this.af.database.list("/users/"+uid).push(user)
   }
 }

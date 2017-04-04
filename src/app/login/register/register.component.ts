@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginController } from '../../actorbase/login-controller';
 import { Fireuser } from "../../actorbase/fireuser";
+import { User } from "../../actorbase/user";
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,8 +11,8 @@ import { Router } from '@angular/router';
   providers: [LoginController]
 })
 export class RegisterComponent implements OnInit {
-  private firstName: String = "";
-  private lastName: String = "";
+  private firstName: string = "";
+  private lastName: string = "";
   private email: string = "";
   private password: string = "";
   private error: Boolean = false;
@@ -28,7 +29,10 @@ export class RegisterComponent implements OnInit {
       case 'facebook':
         this.lc.register('facebook')
           .then(data => {
-            this.router.navigateByUrl('login');
+            return this.lc.createUser(new User(data.auth.displayName, data.auth.email, data.auth.photoURL), data.auth.uid);
+          })
+          .then(req => {
+            this.router.navigateByUrl('login');            
           })
           .catch(err => {
             this.error = true;
@@ -38,7 +42,10 @@ export class RegisterComponent implements OnInit {
       case 'google':
         this.lc.register('google')
           .then(data => {
-            this.router.navigateByUrl('login');
+            return this.lc.createUser(new User(data.auth.displayName, data.auth.email, data.auth.photoURL), data.auth.uid);
+          })
+          .then(req => {
+            this.router.navigateByUrl('login');            
           })
           .catch(err => {
             this.error = true;
@@ -47,9 +54,12 @@ export class RegisterComponent implements OnInit {
         break;
       case 'email':
         const user = new Fireuser(this.firstName, "0", this.email, this.password);
-        this.lc.createUser(user)
+        this.lc.createFireUser(user)
           .then(data => {
-            this.router.navigateByUrl('login');
+            return this.lc.createUser(new User(this.firstName, this.email), data.auth.uid);
+          })
+          .then(req => {
+            this.router.navigateByUrl('login');            
           })
           .catch(err => {
             this.error = true;

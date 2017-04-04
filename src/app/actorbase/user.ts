@@ -1,13 +1,16 @@
 export class User {
   private uid: string;
   private name: string;
-  private photoUrl: String;
+  private email: string;
+  private username: string;
+  private profilePhoto: String;
 
-  constructor(uid: string, name: string, photoUrl?: string) {
-    this.uid = uid;
+  constructor(name: string, email: string, profilePhoto?: string) {
     this.name = name;
-    if(photoUrl) {
-      this.photoUrl = photoUrl;      
+    this.email = email;
+    this.username = this.email.split("@")[0];
+    if(profilePhoto) {
+      this.profilePhoto = profilePhoto;      
     }
   }
 }
