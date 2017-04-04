@@ -4,13 +4,17 @@ export class User {
   private email: string;
   private username: string;
   private profilePhoto: String;
-
-  constructor(name: string, email: string, profilePhoto?: string) {
+  
+  constructor(name: string, email: string, profilePhoto?: string, uid?: string) {
     this.name = name;
     this.email = email;
     this.username = this.email.split("@")[0];
     if(profilePhoto) {
       this.profilePhoto = profilePhoto;      
+    }
+
+    if(uid) {
+      this.uid = uid
     }
   }
 }

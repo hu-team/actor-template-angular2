@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
       case 'facebook':
         this.lc.login('facebook')
           .then(data => {
-            let user  = new User(data.uid, data.auth.displayName, data.auth.photoURL);
+            let user  = new User(data.auth.displayName, data.auth.email, data.auth.photoURL, data.uid);
 
             this.userAuth.setUser(user);
             this.router.navigateByUrl('dashboard');
@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
       case 'google':
         this.lc.login('google')
           .then(data => {
-            let user = new User(data.uid, data.auth.displayName, data.auth.photoURL);
+            let user = new User(data.auth.displayName, data.auth.email, data.auth.photoURL, data.uid);
 
             this.userAuth.setUser(user);
             this.router.navigateByUrl('dashboard');
@@ -57,8 +57,7 @@ export class LoginComponent implements OnInit {
           }
           this.lc.login('email', obj)
             .then(data => {
-              let user = new User(data.uid, data.auth.email);
-
+              let user = new User("", data.auth.email, null, data.uid);
               this.userAuth.setUser(user);
               this.router.navigateByUrl('dashboard');
             })
