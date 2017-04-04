@@ -1,3 +1,15 @@
-<p>
-  create-project works!
-</p>
+<form [formGroup]="form" (ngSubmit)="saveProject(form.value)">
+  <div>
+    <label>Project naam</label>
+    <input [formControl]="form.controls['project_name']" type="text" placeholder="Project name"/>
+  </div>
+  <div>
+    <label>Project omschrijving</label>
+    <input type="text" [formControl]="form.controls['project_description']" placeholder="Project description" />
+  </div>
+  <div>
+    <button type="submit">
+      Create project
+    </button>
+  </div>
+</form>
