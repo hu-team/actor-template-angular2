@@ -6,7 +6,7 @@ import { User } from '../../actorbase/user';
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
-  styleUrls: ['./board.component.scss']
+  styleUrls: ['./board.component.scss'],
 })
 export class BoardComponent implements OnInit {
   private user: User;
@@ -34,7 +34,7 @@ export class BoardComponent implements OnInit {
         this.create = true;
       break;
       default:
-        this.create = true;
+        this.view = true;
       break;
     }
   }

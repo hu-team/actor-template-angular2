@@ -1,6 +1,8 @@
-<p>
-  view-project works!
-</p>
-<div>
-  Create Project
+<div class="view-project-wrapper">
+  <md-card *ngFor="let project of projectList">
+    <md-card-title>
+      {{project.name}}
+    </md-card-title>
+  </md-card>
 </div>
+{{projectList}}
