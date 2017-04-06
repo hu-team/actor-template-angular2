@@ -4,11 +4,13 @@ import { ViewProjectComponent } from './view-project/view-project.component';
 import { CreateProjectComponent } from './create-project/create-project.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddMemberComponent } from './add-member/add-member.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports: [ViewProjectComponent, CreateProjectComponent],
   declarations: [ViewProjectComponent, CreateProjectComponent, AddMemberComponent]

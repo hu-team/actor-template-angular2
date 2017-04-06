@@ -1,4 +1,9 @@
-<p>
-  add-member works!
-</p>
-{{projectList}}
+<select [(ngModel)]="selectedProject">
+  <option *ngFor="let c of projectList" [ngValue]="c">{{c.name}}</option>
+</select>
+<select [(ngModel)]="selectedUser">
+  <option *ngFor="let c of userList" [ngValue]="c">{{c.username}}</option>
+</select>
+<button (click)="createMember()">
+  Add User
+</button>

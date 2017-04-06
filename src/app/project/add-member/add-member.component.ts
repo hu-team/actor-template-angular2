@@ -12,7 +12,10 @@ import { UserAuthService } from "../../actorbase/user-auth.service";
 })
 export class AddMemberComponent implements OnInit {
   private projectList: Project[] = [];
-  
+  private userList: User[] = [];
+  public selectedProject: Project;
+  public selectedUser: User;
+
   private user: User;
   constructor(public ps: ProjectService, public us: UserAuthService) {
     this.us.getUser().subscribe(user => {
@@ -21,22 +24,27 @@ export class AddMemberComponent implements OnInit {
 
         this.ps.getProjects(this.user.getUid())
         .subscribe(project => {
-          console.log(project);
+          if(project) {
+            this.projectList = project;
+            this.selectedProject = this.projectList[0];
+          }
         });
-        // .subscribe(project => {
-        //   if (project) {
-        //     let isNew = true;
 
-        //     this.projectList.forEach((val) {
-        //       if
-        //     });
-        //     console.log(project);
-        //     this.projectList.push(project);
-        //     console.log(this.projectList);
-        //   }
-        // });
+        this.ps.getUsers(this.user.getUid())
+        .subscribe(users => {
+          if(users) {
+            this.userList = users;
+            this.selectedUser = this.userList[0];
+          }
+        });
       }
     });
+  }
+
+  createMember() {
+    console.log(this.selectedProject);
+    console.log(this.selectedUser);
+    this.ps.createProjectMember(this.selectedProject.$key, this.selectedUser.getUid(), "member");
   }
 
   ngOnInit() {

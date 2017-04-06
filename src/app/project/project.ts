@@ -1,6 +1,7 @@
 export class Project {
   private name: string;
   private description: string;
+  public $key: string;
 
   constructor(name: string, description: string) {
     this.name = name;
