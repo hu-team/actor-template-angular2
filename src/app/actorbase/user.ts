@@ -17,4 +17,8 @@ export class User {
       this.uid = uid
     }
   }
+
+  getUid() : string {
+    return this.uid
+  }
 }

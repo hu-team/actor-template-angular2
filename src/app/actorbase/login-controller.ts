@@ -5,6 +5,7 @@ import { UserAuthService } from './user-auth.service';
 import { EmailPasswordCredentials } from 'angularfire2/auth'
 import { Fireuser } from './fireuser';
 import { User } from './user';
+import {Observable} from "rxjs";
 
 @Injectable()
 export class LoginController {
@@ -81,6 +82,10 @@ export class LoginController {
   }
 
   createUser(user: User, uid: string) {
-    return this.af.database.list("/users/"+uid).push(user)
+    return this.af.database.object("/users/"+uid).set(user)
+  }
+
+  findUser(uid: string): Observable<any> {
+    return this.af.database.object("/users/"+uid)
   }
 }

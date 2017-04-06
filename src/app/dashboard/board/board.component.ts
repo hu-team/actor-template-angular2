@@ -34,7 +34,7 @@ export class BoardComponent implements OnInit {
         this.create = true;
       break;
       default:
-        this.view = true;
+        this.create = true;
       break;
     }
   }

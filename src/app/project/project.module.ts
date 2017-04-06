@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ViewProjectComponent } from './view-project/view-project.component';
 import { CreateProjectComponent } from './create-project/create-project.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AddMemberComponent } from './add-member/add-member.component';
 
 @NgModule({
   imports: [
@@ -10,6 +11,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
   ],
   exports: [ViewProjectComponent, CreateProjectComponent],
-  declarations: [ViewProjectComponent, CreateProjectComponent]
+  declarations: [ViewProjectComponent, CreateProjectComponent, AddMemberComponent]
 })
 export class ProjectModule { }
