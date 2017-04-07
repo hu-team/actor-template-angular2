@@ -1,8 +1,15 @@
 <div class="view-project-wrapper">
+  <div *ngIf="projectList?.length === 0">
+    <h1>You Don't have any projects yet.</h1>
+  </div>
   <md-card *ngFor="let project of projectList">
     <md-card-title>
-      {{project.name}}
+      <h3>{{project.name}}</h3>
+      <h4>{{project.description}}</h4>
     </md-card-title>
+
+    <div class="action">
+      Edit rechten
+    </div>
   </md-card>
 </div>
-{{projectList}}

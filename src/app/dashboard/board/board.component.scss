@@ -4,11 +4,11 @@
 
   @include bp(min-width, $bp-xsmall+1) {
     padding: 40px 25px;
+    padding-left: 0;
     width: 100%;
   }
 
   @include bp(min-width, $bp-medium+1) {
-    background: green;
     margin: 0 auto;
     width: 65%;
   }

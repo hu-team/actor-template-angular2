@@ -1,0 +1,17 @@
+@import "../../../styles.scss";
+
+.view-project-wrapper {
+  display: inline-block;
+  width: 100%;
+
+  md-card {
+    @include bp(min-width, $bp-xsmall+1) {
+       margin-bottom: 25px;
+       min-height: 75px;
+    }
+
+    @include bp(min-width, $bp-medium+1) {
+      min-height: 125px;
+    }
+  }
+}
