@@ -38,16 +38,18 @@ export class ProjectService {
       //Loop over all projects
       val.forEach(data => {
         this.af.database.object(this.PATH[1]+"/"+data.$key).subscribe(member => {
+          
           let keys = Object.keys(member);
-
+          console.log("get members", keys);
           //Check if the key is equal to user id;
-          if(keys[0] === uid) {
-            data.role = member[keys[0]].role;
-            this.list.push(data);
-            this.projectList.next(this.list);
-            console.log("item ok");
-          }
-        
+          keys.forEach(val => {
+            if(val === uid) {
+              data.role = member[val].role;
+              this.list.push(data);
+              this.projectList.next(this.list);
+              console.log("item ok");
+            }
+          })
         });
       });
     });
