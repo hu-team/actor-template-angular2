@@ -4,4 +4,13 @@ export class Actor {
   public name: string;
   public note: string;
   public phone: string;
+
+  constructor(name: string, email: string, note: string, phone: string, fn: string) {
+    this.name = name;
+    this.email = email;
+    this.note = note;
+    this.phone = phone;
+    this.function = fn;
+  }
+  
 }

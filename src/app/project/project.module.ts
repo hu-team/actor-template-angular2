@@ -11,6 +11,7 @@ import { SingleProjectComponent } from './single-project/single-project.componen
 import { MdButtonModule } from '@angular/material/button';
 import { MdDialogModule } from '@angular/material/dialog';
 import { CreateTemplateComponent } from './create-template/create-template.component';
+import { ViewTemplateComponent } from './view-template/view-template.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,7 @@ import { CreateTemplateComponent } from './create-template/create-template.compo
     MdDialogModule
   ],
   exports: [ViewProjectComponent, CreateProjectComponent, SingleProjectComponent],
-  declarations: [ViewProjectComponent, CreateProjectComponent, AddMemberComponent, SingleProjectComponent, CreateTemplateComponent],
-  entryComponents: [ CreateTemplateComponent]
+  declarations: [ViewProjectComponent, CreateProjectComponent, AddMemberComponent, SingleProjectComponent, CreateTemplateComponent, ViewTemplateComponent],
+  entryComponents: [ CreateTemplateComponent, ViewTemplateComponent]
 })
 export class ProjectModule { }

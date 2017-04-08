@@ -1,0 +1,48 @@
+<div class="view-template">
+  <div class="action">
+    <i class="material-icons" (click)="closeDialog()">close</i>
+  </div>
+  <div class="container">
+    <div class="actor">
+      <div class="view">
+        <h2>Actor: {{data.template.name}}</h2>
+        <h4>Description: {{data.template.description}}</h4>
+      </div>
+      <div class="edit">
+      </div>
+    </div>
+    <div class="user-list">
+      <h3>Users</h3>
+      <div class="action">
+        <button md-fab><i class="material-icons">add</i></button>
+      </div>
+    </div>
+    <div class="user-add">
+      <form [formGroup]="useraddForm" >
+        <div class="form-group">
+          <label>Name</label>
+          <input required [formControl]="useraddForm.controls['name']" type="text" />
+        </div>
+        <div class="form-group">
+          <label>Function</label>
+          <input required [formControl]="useraddForm.controls['function']" type="text" />
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input required [formControl]="useraddForm.controls['email']" type="email" />
+        </div>
+        <div class="form-group">
+          <label>Phone</label>
+          <input required [formControl]="useraddForm.controls['phone']" type="number" />
+        </div>
+        <div class="form-group">
+          <label>Note</label>
+          <input required [formControl]="useraddForm.controls['note']" type="text" />
+        </div>
+        <button md-button (click)="saveUser(useraddForm.value)">
+          Create User
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

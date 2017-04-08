@@ -5,6 +5,7 @@ import { ProjectService } from "../project.service";
 import { Project } from "../project";
 import {MdDialog, MdDialogRef, MdDialogConfig } from '@angular/material';
 import { CreateTemplateComponent } from "../create-template/create-template.component";
+import { ViewTemplateComponent } from "../view-template/view-template.component";
 
 @Component({
   selector: 'single-project',
@@ -28,7 +29,9 @@ export class SingleProjectComponent implements OnInit {
       right: ''
     },
     data: {
-      projectId: '0'
+      projectId: '0',
+      role: '',
+      template: null
     }
   };
 
@@ -59,6 +62,7 @@ export class SingleProjectComponent implements OnInit {
               if(members) {
                 const keys = Object.keys(members);
 
+                this.dialogConfig.data.role = members[keys[0]].role;
                 if(keys[0] === user.getUid() && members[keys[0]].role === "analysist") {
                   this.editAble = true;             
                 }
@@ -77,6 +81,12 @@ export class SingleProjectComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       //this.selectedOption = result;
     });
+  }
+
+  viewTemplate(template: Object) {
+    this.dialogConfig.data.template = template;
+ 
+    let dialogRef = this.dialog.open(ViewTemplateComponent, this.dialogConfig);
   }
 
   ngOnInit() {

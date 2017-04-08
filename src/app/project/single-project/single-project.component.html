@@ -7,13 +7,13 @@
   <div *ngIf="haveActorTemplate">
     <ul>
       <li *ngFor="let template of actorTemplateList">
-        <md-card>
+        <md-card (click)="viewTemplate(template)">
           <md-card-title>
             <h3>{{template.name}}</h3>
             <h4>{{template.description}}</h4>                    
           </md-card-title>
           <div class="action" *ngIf="editAble">
-            <button md-fab><i class="material-icons">edit</i></button>
+            <i class="material-icons">edit</i>
           </div>
         </md-card>
       </li>
