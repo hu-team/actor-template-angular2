@@ -5,6 +5,7 @@ export class ActorTemplate {
   public description: string;
   public archive: Boolean;
   public actors: Actor[];
+  public $key: string;
   
   constructor(name: string, description: string, archive: Boolean, actors?: Actor[]) {
     this.name = name;

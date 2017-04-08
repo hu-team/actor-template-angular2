@@ -9,10 +9,10 @@ export class ActorService {
   constructor(public af: AngularFire) { }
 
   createActorTemplate(templateName: string, projectId: string, actorTemplate: ActorTemplate): firebase.Promise<void> {
-    return this.af.database.object(this.PATH[0]+"/"+projectId+"/actor_templates/"+templateName).set(actorTemplate)
+    return this.af.database.list(this.PATH[0]+"/"+projectId+"/actor_templates").push(actorTemplate)
   }
 
   createActor(actor: Actor, projectId: string, templateName: string): firebase.Promise<void> {
-    return this.af.database.object(this.PATH[0]+"/"+projectId+"/actor_templates/"+templateName+"/actors/"+actor.name).set(actor);
+    return this.af.database.list(this.PATH[0]+"/"+projectId+"/actor_templates/"+templateName+"/actors").push(actor);
   }
 }

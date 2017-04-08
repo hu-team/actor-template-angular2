@@ -30,7 +30,12 @@ export class ViewTemplateComponent implements OnInit {
   }
 
   closeDialog() {
+    this.userAdd = false;
     this.dialogRef.close();
+  }
+ 
+  addUser() {
+    this.userAdd = true;
   }
 
   saveUser(user: Object) {
@@ -45,10 +50,10 @@ export class ViewTemplateComponent implements OnInit {
     console.log(email);
     
     const actor = new Actor(name, email, note, phone, fn);
-
-    this.as.createActor(actor, this.data.projectId, this.data.template.name)
+    console.log(this.data.template);
+    this.as.createActor(actor, this.data.projectId, this.data.template.$key)
     .then(succ => {
-      console.log(succ);
+      this.closeDialog();
     })
     .catch(err => {
       console.log(err);

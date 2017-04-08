@@ -12,6 +12,13 @@
             <h3>{{template.name}}</h3>
             <h4>{{template.description}}</h4>                    
           </md-card-title>
+          <div class="users">
+            <ul>
+              <li *ngFor="let actor of template.actorList">
+                {{actor.name}}
+              </li>
+            </ul>
+          </div>
           <div class="action" *ngIf="editAble">
             <i class="material-icons">edit</i>
           </div>

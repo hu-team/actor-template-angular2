@@ -49,8 +49,9 @@ export class SingleProjectComponent implements OnInit {
             //Check if there is ant actor template
             if(project.actor_templates) {
               let keys = Object.keys(project.actor_templates);
-
               keys.forEach(val => {
+                project.actor_templates[val].$key = val;
+                project.actor_templates[val].actorList = this.getActors(project.actor_templates[val].actors);
                 this.actorTemplateList.push(project.actor_templates[val]);
               });
               
@@ -58,6 +59,8 @@ export class SingleProjectComponent implements OnInit {
               this.haveActorTemplate = true;
             }
 
+            console.log(this.actorTemplateList);
+            
             this.ps.getProjectMembers(project.$key).subscribe(members => {
               if(members) {
                 const keys = Object.keys(members);
@@ -84,9 +87,19 @@ export class SingleProjectComponent implements OnInit {
   }
 
   viewTemplate(template: Object) {
+    console.log(template);
     this.dialogConfig.data.template = template;
- 
     let dialogRef = this.dialog.open(ViewTemplateComponent, this.dialogConfig);
+  }
+
+  getActors(actors: Object) {
+    let arr = [];
+    const keys = Object.keys(actors);
+
+    keys.forEach(val => {
+      arr.push(actors[val]);
+    });
+    return arr;
   }
 
   ngOnInit() {

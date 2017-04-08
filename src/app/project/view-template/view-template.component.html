@@ -11,13 +11,18 @@
       <div class="edit">
       </div>
     </div>
-    <div class="user-list">
+    <div class="user-list" *ngIf="!userAdd">
       <h3>Users</h3>
-      <div class="action">
-        <button md-fab><i class="material-icons">add</i></button>
+      <ul>
+        <li *ngFor="let user of data.template.actorList">
+          {{user.name}}
+        </li>
+      </ul>
+      <div class="action" *ngIf="!userAdd">
+        <button md-fab (click)="addUser()"><i class="material-icons">add</i></button>
       </div>
     </div>
-    <div class="user-add">
+    <div class="user-add" *ngIf="userAdd">
       <form [formGroup]="useraddForm" >
         <div class="form-group">
           <label>Name</label>
