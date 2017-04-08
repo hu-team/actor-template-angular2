@@ -45,6 +45,7 @@ export class ProjectService {
             data.role = member[keys[0]].role;
             this.list.push(data);
             this.projectList.next(this.list);
+            console.log("item ok");
           }
         
         });
@@ -71,5 +72,13 @@ export class ProjectService {
     });
 
     return this.userList;
+  }
+
+  public getProject(projectId: string): Observable<Project> {
+    return this.af.database.object(this.PATH[0]+"/"+projectId);
+  }
+
+  public getProjectMembers(projectId: string): Observable<any> {
+    return this.af.database.object(this.PATH[1]+"/"+projectId);
   }
 }

@@ -6,15 +6,24 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AddMemberComponent } from './add-member/add-member.component';
 import { FormsModule } from '@angular/forms';
 import { MdCardModule } from '@angular/material/card';
+import { MdIconModule } from '@angular/material/icon';
+import { SingleProjectComponent } from './single-project/single-project.component';
+import { MdButtonModule } from '@angular/material/button';
+import { MdDialogModule } from '@angular/material/dialog';
+import { CreateTemplateComponent } from './create-template/create-template.component';
 
 @NgModule({
   imports: [
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    MdCardModule
+    MdCardModule,
+    MdIconModule,
+    MdButtonModule,
+    MdDialogModule
   ],
-  exports: [ViewProjectComponent, CreateProjectComponent],
-  declarations: [ViewProjectComponent, CreateProjectComponent, AddMemberComponent]
+  exports: [ViewProjectComponent, CreateProjectComponent, SingleProjectComponent],
+  declarations: [ViewProjectComponent, CreateProjectComponent, AddMemberComponent, SingleProjectComponent, CreateTemplateComponent],
+  entryComponents: [ CreateTemplateComponent]
 })
 export class ProjectModule { }

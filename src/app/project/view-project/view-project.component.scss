@@ -5,6 +5,12 @@
   width: 100%;
 
   md-card {
+    cursor: pointer;
+    
+    .action {
+      text-align: right;
+    }
+
     @include bp(min-width, $bp-xsmall+1) {
        margin-bottom: 25px;
        min-height: 75px;

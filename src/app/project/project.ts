@@ -1,11 +1,15 @@
-export class Project {
-  private name: string;
-  private description: string;
-  public $key: string;
+import { ActorTemplate } from './actor-template';
 
+export class Project {
+  public name: string;
+  public summary: string;
+  public $key: string;
+  public role: string;
+  public actor_templates: ActorTemplate[];
+  
   constructor(name: string, description: string) {
     this.name = name;
-    this.description = description;
+    this.summary = description;
   }
 
   getName(): string {
@@ -17,10 +21,10 @@ export class Project {
   }
 
   getDescription(): string {
-    return this.description;
+    return this.summary;
   }
 
   setDescription(description: string): void {
-    this.description = description;
+    this.summary = description;
   }
 }

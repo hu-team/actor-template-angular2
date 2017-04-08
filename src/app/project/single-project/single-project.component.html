@@ -1,0 +1,21 @@
+<div class="single-project">
+  <h1>{{currProject.name}}</h1>
+  <h4>{{currProject.summary}}</h4>
+  <div *ngIf="!haveActorTemplate">
+    <h1>There is no actor template yet</h1>
+  </div>
+  <div *ngIf="haveActorTemplate">
+    <ul>
+      <li *ngFor="let template of actorTemplateList">
+        <md-card>
+          {{template.name}}          
+        </md-card>
+      </li>
+    </ul>
+  </div>
+  <div class="action" *ngIf="editAble">
+    <button md-button (click)="createTemplate()">
+        Create Actor Template
+    </button>
+  </div>
+</div>

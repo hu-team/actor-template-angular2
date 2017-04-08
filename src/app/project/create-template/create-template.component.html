@@ -1,0 +1,18 @@
+<div class="actor-template">
+  <div class="action">
+    <i class="material-icons" (click)="closeDialog()">close</i>
+  </div>
+  <form [formGroup]="form" (ngSubmit)="saveTemplate(form.value)">
+    <div class="form-group">
+      <label>Role name</label>
+      <input required [formControl]="form.controls['name']" type="text" placeholder="Template name"/>
+    </div>
+    <div class="form-group">
+      <label>Role description</label>
+      <input [formControl]="form.controls['description']" type="text" placeholder="Template name"/>
+    </div>
+    <button md-button type="submit">
+      Create actor template
+    </button>
+  </form>
+</div>

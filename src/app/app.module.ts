@@ -31,6 +31,10 @@ const appRoutes: Routes = [
     component: BoardComponent
   },
   {
+    path: 'project/single/:id',
+    component: BoardComponent
+  },
+  {
     path: '',
     redirectTo: '/login',
     pathMatch: 'full'

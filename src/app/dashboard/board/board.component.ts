@@ -12,6 +12,7 @@ export class BoardComponent implements OnInit {
   private user: User;
   private create: Boolean = false;
   private view: Boolean = false;
+  private single: Boolean = false;
 
   constructor(public userAuth: UserAuthService, public router: Router) { 
     this.userAuth.getUser().subscribe(user => {
@@ -25,13 +26,21 @@ export class BoardComponent implements OnInit {
 
   ngOnInit() {
     const url = this.router.url;
+    let urlString = url;
 
-    switch(url) {
+    if(url.split("/").length > 2) {
+      urlString = url.split("/")[2];
+    }
+
+    switch(urlString) {
       case '/dasboard':
         this.view = true;
       break;
-      case '/project/create':
+      case 'create':
         this.create = true;
+      break;
+      case 'single':
+        this.single = true;
       break;
       default:
         this.view = true;
