@@ -40,7 +40,6 @@ export class ProjectService {
         this.af.database.object(this.PATH[1]+"/"+data.$key).subscribe(member => {
           
           let keys = Object.keys(member);
-          console.log("get members", keys);
           //Check if the key is equal to user id;
           keys.forEach(val => {
             if(val === uid) {
