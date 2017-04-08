@@ -3,4 +3,17 @@
           list-style: none;
           padding: 0;
       }
+
+      li {
+        margin-bottom: 10px;
+
+        md-card {
+          cursor: pointer;
+          min-height: 150px;
+
+          .action {
+            text-align: right;
+          }
+        }
+      }
   }
