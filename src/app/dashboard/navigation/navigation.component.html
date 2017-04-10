@@ -1,10 +1,17 @@
 <nav id="navigation">
+  <div class="user">
+    <md-menu #userMenu="mdMenu">
+      <button md-menu-item (click)="logout()">Logout</button>
+    </md-menu>
+    <img [mdMenuTriggerFor]="userMenu" src="{{photoUrl}}" />
+  </div>
   <div class="brandName">
     <h1>Actor Template</h1>
   </div>
   <div class="links">
     <md-menu #appMenu="mdMenu">
       <button md-menu-item (click)="logout()">Logout</button>
+      <button md-menu-item (click)="projectOverview()">Project Overview</button>
     </md-menu>
     <md-icon [mdMenuTriggerFor]="appMenu" >menu</md-icon>
   </div>

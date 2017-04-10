@@ -38,4 +38,22 @@
     }
 
   }
+
+  .menu {
+    @include bp(min-width, $bp-small+1) {
+      width: 25%;
+    }
+  }
+
+  .user {
+    display: inline-block;
+    margin: 10px 15px;
+    float: left;
+
+    img {
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+    }
+  }
 }

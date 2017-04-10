@@ -10,8 +10,18 @@ import { UserAuthService } from '../../actorbase/user-auth.service';
   providers: [ LoginController ]
 })
 export class NavigationComponent implements OnInit {
+  private photoUrl: string = '';
 
-  constructor(public router: Router, public lc: LoginController, public userAuth: UserAuthService) { }
+  constructor(public router: Router, public lc: LoginController, public userAuth: UserAuthService) {
+    this.userAuth.getUser().subscribe(user =>{
+      let photo = user.getprofilePhoto();
+
+      if(photo) {
+        this.photoUrl = photo;
+      }
+      
+    });
+   }
 
   ngOnInit() {
   }
@@ -22,4 +32,7 @@ export class NavigationComponent implements OnInit {
     this.router.navigateByUrl("login");
   }
 
+  projectOverview() {
+    this.router.navigateByUrl("dashboard");
+  }
 }

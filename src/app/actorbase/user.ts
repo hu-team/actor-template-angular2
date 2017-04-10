@@ -3,7 +3,7 @@ export class User {
   private name: string;
   private email: string;
   private username: string;
-  private profilePhoto: String;
+  private profilePhoto: string = "";
   
   constructor(name: string, email: string, profilePhoto?: string, uid?: string) {
     this.name = name;
@@ -20,5 +20,9 @@ export class User {
 
   getUid() : string {
     return this.uid
+  }
+
+  getprofilePhoto(): string {
+    return this.profilePhoto;
   }
 }
