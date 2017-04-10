@@ -51,7 +51,9 @@ export class SingleProjectComponent implements OnInit {
               let keys = Object.keys(project.actor_templates);
               keys.forEach(val => {
                 project.actor_templates[val].$key = val;
-                project.actor_templates[val].actorList = this.getActors(project.actor_templates[val].actors);
+                if(project.actor_templates[val].actors) {
+                  project.actor_templates[val].actorList = this.getActors(project.actor_templates[val].actors);                  
+                }
                 this.actorTemplateList.push(project.actor_templates[val]);
               });
               
@@ -65,10 +67,21 @@ export class SingleProjectComponent implements OnInit {
               if(members) {
                 const keys = Object.keys(members);
 
-                this.dialogConfig.data.role = members[keys[0]].role;
-                if(keys[0] === user.getUid() && members[keys[0]].role === "analysist") {
-                  this.editAble = true;             
-                }
+                console.log(user.getUid());
+
+
+                keys.forEach(val => {
+                  if(val === user.getUid()) {
+                    this.dialogConfig.data.role = members[val].role;
+                    console.log(members[val].role);
+                  }
+
+                  console.log(members[val]);
+
+                  if(val === user.getUid() && members[val].role === "analysist") {
+                    this.editAble = true;             
+                  }
+                })
               }
             }); 
           }
@@ -87,7 +100,6 @@ export class SingleProjectComponent implements OnInit {
   }
 
   viewTemplate(template: Object) {
-    console.log(template);
     this.dialogConfig.data.template = template;
     let dialogRef = this.dialog.open(ViewTemplateComponent, this.dialogConfig);
   }
@@ -97,6 +109,7 @@ export class SingleProjectComponent implements OnInit {
     const keys = Object.keys(actors);
 
     keys.forEach(val => {
+      actors[val].$key = val;
       arr.push(actors[val]);
     });
     return arr;

@@ -19,4 +19,13 @@
             cursor: pointer;
         }
     }
+
+    .user-list {
+        li {
+            cursor: pointer;
+            float: left;
+            margin-bottom: 15px;
+            margin-right: 15px;
+        }
+    }
 }

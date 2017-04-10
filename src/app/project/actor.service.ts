@@ -15,4 +15,8 @@ export class ActorService {
   createActor(actor: Actor, projectId: string, templateName: string): firebase.Promise<void> {
     return this.af.database.list(this.PATH[0]+"/"+projectId+"/actor_templates/"+templateName+"/actors").push(actor);
   }
+
+  editActor(projectId: string, template_key: string, actor_key: string, actor: Actor): firebase.Promise<void> {
+    return this.af.database.object(this.PATH[0]+"/"+projectId+"/actor_templates/"+template_key+"/actors/"+actor_key).set(actor);
+  }
 }
