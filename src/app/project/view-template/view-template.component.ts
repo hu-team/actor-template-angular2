@@ -63,15 +63,17 @@ export class ViewTemplateComponent implements OnInit {
   }
 
   editUser(editUser: Actor) {
-    this.userEdit = true;
-    this.hideUserList = true;
-    this.userEditKey = editUser.$key;
+    if(this.data.role === "analysist") {
+      this.userEdit = true;
+      this.hideUserList = true;
+      this.userEditKey = editUser.$key;
 
-    this.useraddForm.controls["name"].setValue(editUser.name);
-    this.useraddForm.controls["function"].setValue(editUser.function);
-    this.useraddForm.controls["email"].setValue(editUser.email);
-    this.useraddForm.controls["phone"].setValue(editUser.phone);
-    this.useraddForm.controls["note"].setValue(editUser.note);
+      this.useraddForm.controls["name"].setValue(editUser.name);
+      this.useraddForm.controls["function"].setValue(editUser.function);
+      this.useraddForm.controls["email"].setValue(editUser.email);
+      this.useraddForm.controls["phone"].setValue(editUser.phone);
+      this.useraddForm.controls["note"].setValue(editUser.note);
+    }
   }
 
   saveEditUser(user: Object) {
