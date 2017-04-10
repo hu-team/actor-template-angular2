@@ -14,12 +14,13 @@ export class NavigationComponent implements OnInit {
 
   constructor(public router: Router, public lc: LoginController, public userAuth: UserAuthService) {
     this.userAuth.getUser().subscribe(user =>{
-      let photo = user.getprofilePhoto();
+      if(user) {
+        let photo = user.getprofilePhoto();
 
-      if(photo) {
-        this.photoUrl = photo;
+        if(photo) {
+          this.photoUrl = photo;
+        }
       }
-      
     });
    }
 
